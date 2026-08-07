@@ -7,7 +7,7 @@
       "blocks": {
         "a1": { "type": "item", "settings": { "text": "Free shipping over $79" } },
         "a2": { "type": "item", "settings": { "text": "Anti-tarnish · Waterproof · 18k gold plated" } },
-        "a3": { "type": "item", "settings": { "text": "Handmade quilted bags, small batch" } }
+        "a3": { "type": "item", "settings": { "text": "Hypoallergenic · Nickel free" } }
       },
       "block_order": ["a1", "a2", "a3"]
     },

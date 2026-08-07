@@ -1,7 +1,7 @@
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="f-brand">
-      <span class="logo">{{ shop.name | upcase }}<span class="logo-mark">✦</span></span>
+      <span class="logo">{{ settings.brand_name | default: shop.name | upcase }}<span class="logo-mark">✦</span></span>
       <p>{{ section.settings.blurb }}</p>
     </div>
     {%- for block in section.blocks -%}
@@ -13,14 +13,14 @@
       </div>
     {%- endfor -%}
   </div>
-  <p class="f-fine">© {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+  <p class="f-fine">© {{ 'now' | date: '%Y' }} {{ settings.brand_name | default: shop.name }}. All rights reserved.</p>
 </footer>
 
 {% schema %}
 {
   "name": "Footer",
   "settings": [
-    { "type": "text", "id": "blurb", "label": "Brand blurb", "default": "Affordable luxury, made to be lived in. Anti-tarnish jewellery & handmade quilted bags." }
+    { "type": "text", "id": "blurb", "label": "Brand blurb", "default": "Affordable luxury, made to be lived in. Anti-tarnish, waterproof, 18k gold-plated jewellery." }
   ],
   "max_blocks": 3,
   "blocks": [

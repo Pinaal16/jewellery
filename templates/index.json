@@ -8,7 +8,7 @@
         "heading_em": "the occasion.",
         "subtext": "18k gold-plated, anti-tarnish pieces made for showers, sun and every day after. Nothing here needs to be saved for best.",
         "cta1_label": "Shop New Arrivals",
-        "cta2_label": "The Handmade Bags",
+        "cta2_label": "Most Loved",
         "badge_text": "Under<br>$30"
       }
     },
@@ -17,20 +17,18 @@
       "blocks": {
         "v1": { "type": "value", "settings": { "icon": "💧", "heading": "Waterproof", "text": "Swim, shower, sweat — it stays gold." } },
         "v2": { "type": "value", "settings": { "icon": "✦", "heading": "Anti-tarnish", "text": "18k gold plating over stainless steel." } },
-        "v3": { "type": "value", "settings": { "icon": "🤍", "heading": "Skin friendly", "text": "Hypoallergenic & nickel safe." } },
-        "v4": { "type": "value", "settings": { "icon": "🧵", "heading": "Hand quilted", "text": "Block-printed bags, made in small batches." } }
+        "v3": { "type": "value", "settings": { "icon": "🤍", "heading": "Skin friendly", "text": "Hypoallergenic & nickel safe." } }
       },
-      "block_order": ["v1", "v2", "v3", "v4"]
+      "block_order": ["v1", "v2", "v3"]
     },
     "collection_cards": {
       "type": "collection-cards",
       "blocks": {
         "c1": { "type": "card", "settings": { "subtitle": "Charms & pendants" } },
         "c2": { "type": "card", "settings": { "subtitle": "Hoops & huggies" } },
-        "c3": { "type": "card", "settings": { "subtitle": "Bangles & beads" } },
-        "c4": { "type": "card", "settings": { "subtitle": "Totes & weekenders" } }
+        "c3": { "type": "card", "settings": { "subtitle": "Bangles & beads" } }
       },
-      "block_order": ["c1", "c2", "c3", "c4"]
+      "block_order": ["c1", "c2", "c3"]
     },
     "new_arrivals": {
       "type": "featured-collection",
@@ -41,20 +39,6 @@
         "limit": 8,
         "anchor": "new"
       }
-    },
-    "handmade_banner": {
-      "type": "handmade-banner",
-      "settings": {
-        "eyebrow": "Lauviere Handmades",
-        "heading": "Crafted by hand,",
-        "heading_em": "carried for life.",
-        "text": "Quilted cotton totes, duffels and laptop sleeves in Indian block prints. Every stitch by a human, every bag one of a small batch.",
-        "anchor": "handmade"
-      }
-    },
-    "handmade_grid": {
-      "type": "featured-collection",
-      "settings": { "limit": 4, "style": "tight" }
     },
     "most_loved": {
       "type": "featured-collection",
@@ -85,5 +69,5 @@
       "type": "newsletter"
     }
   },
-  "order": ["hero", "values", "collection_cards", "new_arrivals", "handmade_banner", "handmade_grid", "most_loved", "story", "testimonials", "newsletter"]
+  "order": ["hero", "values", "collection_cards", "new_arrivals", "most_loved", "story", "testimonials", "newsletter"]
 }

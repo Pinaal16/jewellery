@@ -1,7 +1,7 @@
 # Lauviere — Shopify Theme
 
 Custom Shopify Online Store 2.0 theme for Lauviere: anti-tarnish, waterproof,
-18k gold-plated jewellery and handmade quilted bags.
+18k gold-plated jewellery — necklaces, earrings and bracelets.
 
 Ported from the original static prototype (preserved in `prototype/`).
 
@@ -21,6 +21,7 @@ Ported from the original static prototype (preserved in `prototype/`).
 3. Set navigation menus (main-menu, footer) in admin → Navigation
 4. In the theme editor, assign a collection to each "Featured collection" and "Collection card" section
 5. The cart drawer free-shipping message threshold is in Theme settings → Shipping — keep it in sync with your real shipping rates
+6. The wordmark comes from Theme settings → Brand → Brand name, so it reads "LAUVIERE" regardless of the Shopify store name. Rename the store itself in Shopify admin → Settings → Store details (this also fixes order emails and receipts).
 
 ## Notes
 

@@ -8,6 +8,18 @@
     "theme_support_url": "https://github.com/pinaal16/jewellery"
   },
   {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "text",
+        "id": "brand_name",
+        "label": "Brand name",
+        "info": "Shown as the wordmark in the header and footer. Leave blank to use the Shopify store name from Settings → Store details.",
+        "default": "Lauviere"
+      }
+    ]
+  },
+  {
     "name": "Shipping",
     "settings": [
       {

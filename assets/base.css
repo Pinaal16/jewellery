@@ -83,7 +83,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 
 /* Values */
 .values{background:var(--cream);border-bottom:1px solid rgba(30,58,47,.08)}
-.values-inner{max-width:1200px;margin:0 auto;padding:2.4rem 1.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
+.values-inner{max-width:1200px;margin:0 auto;padding:2.4rem 1.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.5rem;text-align:center}
 .value span{font-size:1.5rem}
 .value h3{font-size:1.15rem;margin:.35rem 0 .15rem;color:var(--pine)}
 .value p{font-size:.85rem;opacity:.75}
@@ -92,7 +92,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .section-title{text-align:center;font-size:clamp(2rem,3.6vw,2.9rem);color:var(--pine)}
 .section-sub{text-align:center;opacity:.7;margin-top:.5rem}
 .collections{max-width:1200px;margin:0 auto;padding:5rem 1.5rem 3.5rem}
-.collection-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:2.6rem}
+.collection-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:2.6rem}
 .collection-card{background:#fff;border:1px solid rgba(30,58,47,.1);border-radius:var(--radius);padding:1.8rem 1.2rem;text-align:center;transition:transform .3s,box-shadow .3s,border-color .3s}
 .collection-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--gold)}
 .cc-art{width:96px;height:96px;margin:0 auto 1rem;background:var(--cream);border-radius:50%;display:grid;place-items:center;padding:14px;overflow:hidden}
@@ -125,8 +125,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .add-btn.added{background:var(--gold);border-color:var(--gold);color:var(--pine-deep)}
 .add-btn[disabled]{opacity:.5;cursor:default}
 
-/* Handmade banner */
-.handmade-banner{background:
+/* Brand banner */
+.brand-banner{background:
   radial-gradient(700px 380px at 12% 110%, rgba(232,198,107,.22), transparent 60%),
   linear-gradient(120deg, var(--pine-deep), var(--pine));
   color:var(--cream);text-align:center}
@@ -254,7 +254,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   .hero-inner{grid-template-columns:1fr;text-align:center;padding-top:4rem}
   .hero-sub{margin-inline:auto}
   .hero-cta{justify-content:center}
-  .values-inner,.collection-grid{grid-template-columns:repeat(2,1fr)}
   .product-grid{grid-template-columns:repeat(2,1fr)}
   .testimonial-grid{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr 1fr}

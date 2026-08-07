@@ -1,4 +1,4 @@
-<section class="handmade-banner" id="{{ section.settings.anchor | default: section.id }}">
+<section class="brand-banner" id="{{ section.settings.anchor | default: section.id }}">
   <div class="hb-inner reveal">
     {%- if section.settings.eyebrow != blank -%}<p class="eyebrow light">{{ section.settings.eyebrow }}</p>{%- endif -%}
     <h2>{{ section.settings.heading }}<br><em>{{ section.settings.heading_em }}</em></h2>
@@ -11,10 +11,10 @@
 {
   "name": "Banner",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Lauviere Handmades" },
-    { "type": "text", "id": "heading", "label": "Heading (line 1)", "default": "Crafted by hand," },
-    { "type": "text", "id": "heading_em", "label": "Heading (italic line 2)", "default": "carried for life." },
-    { "type": "textarea", "id": "text", "label": "Text", "default": "Quilted cotton totes, duffels and laptop sleeves in Indian block prints. Every stitch by a human, every bag one of a small batch." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Lauviere Promise" },
+    { "type": "text", "id": "heading", "label": "Heading (line 1)", "default": "Made to be worn," },
+    { "type": "text", "id": "heading_em", "label": "Heading (italic line 2)", "default": "not saved for best." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "18k gold plating over stainless steel, sealed against tarnish. Swim in it, shower in it, sleep in it — it holds its colour." },
     { "type": "text", "id": "offer", "label": "Offer pill text" },
     { "type": "text", "id": "anchor", "label": "Anchor ID (for menu links)" }
   ],
