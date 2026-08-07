@@ -17,7 +17,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--ivory);color:var(--ink);line-height:1.6;font-weight:300}
-h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;letter-spacing:var(--heading-spacing,0);text-wrap:balance}
 img,svg{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
@@ -270,4 +270,56 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   .nav-right a{display:none}
   .story-stats{gap:2rem}
   .cart-page-row{grid-template-columns:64px 1fr auto}
+}
+
+/* Skip link */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:200;background:var(--pine);color:var(--cream);padding:.7rem 1.2rem;border-radius:0 0 var(--radius-sm,10px) 0}
+.skip-link:focus{left:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* Contact page */
+.contact-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:3rem;margin-top:2rem;align-items:start}
+.contact-form{display:flex;flex-direction:column}
+.field-label{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pine);opacity:.75;margin-bottom:.4rem;font-weight:500}
+.field-label span{opacity:.6;letter-spacing:.04em;text-transform:none}
+.contact-form textarea{resize:vertical;font-family:inherit;line-height:1.6}
+.contact-form .btn{align-self:flex-start;margin-top:.4rem}
+.form-success{background:var(--cream);border-left:3px solid var(--gold);padding:.9rem 1.1rem;border-radius:0 12px 12px 0;margin-bottom:1.4rem;color:var(--pine)}
+.form-error{color:var(--rose);margin-bottom:1.2rem}
+.contact-aside{display:grid;gap:1.6rem;background:var(--cream);padding:1.8rem;border-radius:var(--radius)}
+.contact-aside h3{font-size:1.15rem;color:var(--pine);margin-bottom:.3rem}
+.contact-aside p{font-size:.9rem;opacity:.8;margin:0}
+
+/* Signup popup */
+.popup-veil{position:fixed;inset:0;background:rgba(18,40,32,.55);backdrop-filter:blur(3px);z-index:120;opacity:0;transition:opacity .35s}
+.popup-veil.open{opacity:1}
+.popup{position:fixed;z-index:130;top:50%;left:50%;width:min(760px,92vw);max-height:92dvh;overflow:auto;
+  transform:translate(-50%,-46%) scale(.97);opacity:0;pointer-events:none;
+  background:var(--ivory);border-radius:calc(var(--radius) + 6px);box-shadow:0 40px 90px -30px rgba(18,40,32,.55);
+  display:grid;grid-template-columns:1fr 1fr;transition:opacity .38s ease,transform .38s cubic-bezier(.2,.8,.3,1)}
+.popup.open{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto}
+.popup:not(.has-art){grid-template-columns:1fr}
+.popup-art{background:var(--cream);overflow:hidden}
+.popup-art img{width:100%;height:100%;object-fit:cover}
+.popup-body{padding:2.6rem 2.2rem}
+.popup-body h2{font-size:clamp(1.8rem,3vw,2.4rem);color:var(--pine);margin-bottom:.6rem}
+.popup-text{opacity:.78;font-size:.95rem;margin-bottom:1.5rem;max-width:38ch}
+.popup-row{display:flex;gap:.6rem;flex-wrap:wrap}
+.popup-row input{flex:1 1 12rem;padding:.85rem 1.2rem;border-radius:999px;border:1px solid rgba(30,58,47,.25);background:#fff;font-family:inherit;font-size:.95rem;outline:none}
+.popup-row input:focus{border-color:var(--gold)}
+.popup-error{color:var(--rose);font-size:.85rem;margin-top:.7rem}
+.popup-decline{display:block;margin-top:1.1rem;font-size:.82rem;opacity:.6;text-decoration:underline;text-underline-offset:3px}
+.popup-decline:hover{opacity:1}
+.popup-close{position:absolute;top:.9rem;right:1.1rem;font-size:1.1rem;opacity:.55;z-index:2;width:32px;height:32px;border-radius:50%}
+.popup-close:hover{opacity:1;background:rgba(30,58,47,.08)}
+.popup-done{padding-top:.4rem}
+.popup-code{font-family:var(--serif);font-size:2rem;letter-spacing:.18em;color:var(--pine);background:var(--cream);border:1px dashed var(--gold);border-radius:12px;padding:.7rem 1rem;text-align:center;margin-top:.8rem}
+@media(max-width:720px){
+  .popup{grid-template-columns:1fr}
+  .popup-art{max-height:180px}
+  .popup-body{padding:2rem 1.5rem}
+  .contact-grid{grid-template-columns:1fr;gap:2rem}
+}
+@media (prefers-reduced-motion: reduce){
+  .popup,.popup-veil{transition:none}
 }

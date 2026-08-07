@@ -1,0 +1,39 @@
+{%- if settings.popup_enabled -%}
+<div class="popup-veil" id="popupVeil" hidden></div>
+<div class="popup" id="signupPopup" role="dialog" aria-modal="true" aria-labelledby="popupHeading" hidden>
+  <button class="popup-close" id="popupClose" aria-label="Close">✕</button>
+
+  {%- if settings.popup_image -%}
+    <div class="popup-art">
+      {{ settings.popup_image | image_url: width: 640 | image_tag: loading: 'lazy', alt: '' }}
+    </div>
+  {%- endif -%}
+
+  <div class="popup-body">
+    <p class="eyebrow">{{ settings.brand_name | default: shop.name }} ✦</p>
+    <h2 id="popupHeading">{{ settings.popup_heading }}</h2>
+    <p class="popup-text">{{ settings.popup_text }}</p>
+
+    <div id="popupForm">
+      {%- form 'customer', id: 'popupSignup' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter,popup">
+        <div class="popup-row">
+          <input type="email" name="contact[email]" placeholder="your@email.com" required aria-label="Email address">
+          <button type="submit" class="btn btn-solid">{{ settings.popup_button }}</button>
+        </div>
+        {%- if form.errors -%}
+          <p class="popup-error">{{ form.errors | default_errors }}</p>
+        {%- endif -%}
+      {%- endform -%}
+      <button class="popup-decline" id="popupDecline">{{ settings.popup_dismiss }}</button>
+    </div>
+
+    <div id="popupDone" class="popup-done" hidden>
+      <p>{{ settings.popup_success }}</p>
+      {%- if settings.popup_code != blank -%}
+        <p class="popup-code">{{ settings.popup_code }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+{%- endif -%}

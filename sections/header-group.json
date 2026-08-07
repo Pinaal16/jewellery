@@ -6,8 +6,8 @@
       "type": "announcement",
       "blocks": {
         "a1": { "type": "item", "settings": { "text": "Free shipping over $79" } },
-        "a2": { "type": "item", "settings": { "text": "Anti-tarnish · Waterproof · 18k gold plated" } },
-        "a3": { "type": "item", "settings": { "text": "Hypoallergenic · Nickel free" } }
+        "a2": { "type": "item", "settings": { "text": "New pieces added regularly" } },
+        "a3": { "type": "item", "settings": { "text": "Secure checkout" } }
       },
       "block_order": ["a1", "a2", "a3"]
     },

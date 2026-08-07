@@ -137,5 +137,73 @@ const io = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
 
+/* ————— Email signup popup ————— */
+(function () {
+  var cfg = (window.theme && window.theme.popup) || {};
+  var el = document.getElementById('signupPopup');
+  var veil = document.getElementById('popupVeil');
+  if (!cfg.enabled || !el || !veil) return;
+
+  var KEY = 'lauviere-popup';
+  var art = el.querySelector('.popup-art');
+  if (art) el.classList.add('has-art');
+
+  function seen() {
+    try {
+      var until = Number(localStorage.getItem(KEY) || 0);
+      return until > Date.now();
+    } catch (e) { return false; }
+  }
+  function remember(days) {
+    try { localStorage.setItem(KEY, String(Date.now() + days * 86400000)); } catch (e) {}
+  }
+
+  var lastFocus = null;
+
+  function open() {
+    lastFocus = document.activeElement;
+    el.hidden = false; veil.hidden = false;
+    requestAnimationFrame(function () { el.classList.add('open'); veil.classList.add('open'); });
+    var field = el.querySelector('input[type="email"]');
+    if (field) setTimeout(function () { field.focus(); }, 400);
+  }
+
+  function close(days) {
+    el.classList.remove('open'); veil.classList.remove('open');
+    remember(days == null ? cfg.remindDays : days);
+    setTimeout(function () { el.hidden = true; veil.hidden = true; }, 380);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  document.getElementById('popupClose').addEventListener('click', function () { close(); });
+  document.getElementById('popupDecline').addEventListener('click', function () { close(); });
+  veil.addEventListener('click', function () { close(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !el.hidden) close();
+  });
+
+  // Keep tabbing inside the dialog while it is open
+  el.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+    var focusable = el.querySelectorAll('button, [href], input, textarea, select');
+    if (!focusable.length) return;
+    var first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  // Shopify reloads with ?customer_posted=true after a successful signup
+  if (/[?&]customer_posted=true/.test(window.location.search)) {
+    var form = document.getElementById('popupForm');
+    var done = document.getElementById('popupDone');
+    if (form && done) { form.hidden = true; done.hidden = false; }
+    remember(365);
+    open();
+    return;
+  }
+
+  if (!seen()) setTimeout(open, cfg.delay || 8000);
+})();
+
 /* ————— Init ————— */
 fetchCart().then(renderCart);

@@ -2,7 +2,7 @@
   {
     "name": "theme_info",
     "theme_name": "Lauviere",
-    "theme_version": "1.0.0",
+    "theme_version": "2.0.0",
     "theme_author": "Lauviere",
     "theme_documentation_url": "https://github.com/pinaal16/jewellery",
     "theme_support_url": "https://github.com/pinaal16/jewellery"
@@ -16,6 +16,123 @@
         "label": "Brand name",
         "info": "Shown as the wordmark in the header and footer. Leave blank to use the Shopify store name from Settings → Store details.",
         "default": "Lauviere"
+      },
+      {
+        "type": "image_picker",
+        "id": "social_image",
+        "label": "Social sharing image",
+        "info": "Used when someone shares your homepage on social media. 1200 × 630 px works best."
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Headings"
+      },
+      {
+        "type": "font_picker",
+        "id": "heading_font",
+        "label": "Heading font",
+        "default": "prata_n4",
+        "info": "Try Prata, Marcellus, Italiana, Cormorant Garamond or Playfair Display for a jewellery feel."
+      },
+      {
+        "type": "range",
+        "id": "heading_letter_spacing",
+        "label": "Heading letter spacing",
+        "min": -0.03,
+        "max": 0.08,
+        "step": 0.01,
+        "unit": "em",
+        "default": -0.01
+      },
+      {
+        "type": "header",
+        "content": "Body"
+      },
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "label": "Body font",
+        "default": "jost_n4",
+        "info": "Try Jost, Karla, Work Sans, DM Sans or Tenor Sans."
+      }
+    ]
+  },
+  {
+    "name": "Email signup popup",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "popup_enabled",
+        "label": "Show signup popup",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "popup_heading",
+        "label": "Heading",
+        "default": "10% off your first order"
+      },
+      {
+        "type": "textarea",
+        "id": "popup_text",
+        "label": "Text",
+        "default": "Join the list for first access to new pieces, restocks and the occasional quiet sale."
+      },
+      {
+        "type": "text",
+        "id": "popup_button",
+        "label": "Button label",
+        "default": "Get my code"
+      },
+      {
+        "type": "text",
+        "id": "popup_code",
+        "label": "Discount code to reveal",
+        "info": "Create this code first under Discounts, then enter it here. Subscribers see it after signing up.",
+        "default": "HELLO10"
+      },
+      {
+        "type": "text",
+        "id": "popup_success",
+        "label": "Success message",
+        "default": "You're in. Use this code at checkout:"
+      },
+      {
+        "type": "text",
+        "id": "popup_dismiss",
+        "label": "Decline link text",
+        "default": "No thanks"
+      },
+      {
+        "type": "image_picker",
+        "id": "popup_image",
+        "label": "Popup image",
+        "info": "Optional. A single product shot works well."
+      },
+      {
+        "type": "range",
+        "id": "popup_delay",
+        "label": "Show after",
+        "min": 2,
+        "max": 30,
+        "step": 1,
+        "unit": "s",
+        "default": 8
+      },
+      {
+        "type": "range",
+        "id": "popup_remind_days",
+        "label": "Don't show again for",
+        "min": 1,
+        "max": 90,
+        "step": 1,
+        "unit": "d",
+        "default": 14
       }
     ]
   },
@@ -26,7 +143,7 @@
         "type": "number",
         "id": "free_shipping_threshold",
         "label": "Free shipping threshold",
-        "info": "Order subtotal (in store currency, whole units) that unlocks free shipping messaging in the cart drawer. Must match your actual shipping rate settings.",
+        "info": "Order subtotal (whole units of your store currency) that unlocks the free-shipping message in the cart. This is display only — it must match the rates you set under Settings → Shipping and delivery.",
         "default": 79
       }
     ]

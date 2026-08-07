@@ -1,7 +1,7 @@
 # Lauviere — Shopify Theme
 
-Custom Shopify Online Store 2.0 theme for Lauviere: anti-tarnish, waterproof,
-18k gold-plated jewellery — necklaces, earrings and bracelets.
+Custom Shopify Online Store 2.0 theme for Lauviere — necklaces, earrings
+and bracelets.
 
 Ported from the original static prototype (preserved in `prototype/`).
 
@@ -23,8 +23,25 @@ Ported from the original static prototype (preserved in `prototype/`).
 5. The cart drawer free-shipping message threshold is in Theme settings → Shipping — keep it in sync with your real shipping rates
 6. The wordmark comes from Theme settings → Brand → Brand name, so it reads "LAUVIERE" regardless of the Shopify store name. Rename the store itself in Shopify admin → Settings → Store details (this also fixes order emails and receipts).
 
+## Claims policy
+
+Nothing in this theme asserts anything about the product. Every default was
+written to be safe to publish before a supplier has confirmed anything.
+
+Material and performance claims — gold plating and its carat, anti-tarnish,
+waterproof or water resistant, hypoallergenic, nickel free — are enforceable
+representations under Australian Consumer Law. Only add them once the supplier
+has confirmed them in writing, and keep that confirmation.
+
+The same applies to social proof: star ratings, customer counts and
+testimonials must come from real orders. The prototype's fake
+purchase-notification toast and its invented statistics were deliberately not
+carried over, and the testimonials section ships empty.
+
 ## Notes
 
-- Product photos: products without images show a placeholder SVG, so the store works before photography is ready.
-- Testimonials section ships empty — add real customer reviews as blocks in the theme editor.
-- The prototype's fake purchase-notification toast was intentionally not ported: fabricated social proof on a live store misleads customers and violates consumer-protection rules in most markets (including the ACCC in Australia).
+- Products without images fall back to a gold line-art placeholder, so the
+  store looks intentional before photography is ready.
+- Fonts come from Shopify's own library via `font_picker`, so they can be
+  changed in Theme settings → Typography with no code edit and no external
+  font request.

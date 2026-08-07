@@ -3,36 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="{{ settings.color_deep | default: '#122820' }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+
   <title>
     {{- page_title -}}
     {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
     {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-    {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    {%- unless page_title contains shop.name %} &ndash; {{ settings.brand_name | default: shop.name }}{% endunless -%}
   </title>
-  {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  {%- if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+
+  {%- comment -%} Social sharing cards {%- endcomment -%}
+  <meta property="og:site_name" content="{{ settings.brand_name | default: shop.name }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:type" content="{% if request.page_type == 'product' %}product{% elsif request.page_type == 'article' %}article{% else %}website{% endif %}">
+  {%- if page_description %}<meta property="og:description" content="{{ page_description | escape }}">{% endif -%}
+  {%- if request.page_type == 'product' and product.featured_image -%}
+    <meta property="og:image" content="http:{{ product.featured_image | image_url: width: 1200 }}">
+  {%- elsif settings.social_image -%}
+    <meta property="og:image" content="http:{{ settings.social_image | image_url: width: 1200 }}">
+  {%- endif -%}
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+
+  {%- comment -%} Fonts come from Shopify's library — swap them in Theme settings → Typography {%- endcomment -%}
+  {{ settings.heading_font | font_face: font_display: 'swap' }}
+  {{ settings.heading_font | font_modify: 'weight', '600' | font_face: font_display: 'swap' }}
+  {{ settings.body_font | font_face: font_display: 'swap' }}
+  {{ settings.body_font | font_modify: 'weight', '500' | font_face: font_display: 'swap' }}
+  {{ settings.body_font | font_modify: 'weight', '300' | font_face: font_display: 'swap' }}
+
   {{ 'base.css' | asset_url | stylesheet_tag }}
+
+  <style>
+    :root {
+      --serif: {{ settings.heading_font.family }}, {{ settings.heading_font.fallback_families }};
+      --sans: {{ settings.body_font.family }}, {{ settings.body_font.fallback_families }};
+      --heading-spacing: {{ settings.heading_letter_spacing | default: 0 }}em;
+    }
+  </style>
+
   <script>
     window.theme = {
       freeShipThreshold: {{ settings.free_shipping_threshold | default: 79 | times: 100 }},
-      moneyFormat: {{ shop.money_format | json }}
+      moneyFormat: {{ shop.money_format | json }},
+      popup: {
+        enabled: {{ settings.popup_enabled | default: false | json }},
+        delay: {{ settings.popup_delay | default: 6 | times: 1000 }},
+        remindDays: {{ settings.popup_remind_days | default: 14 }}
+      }
     };
   </script>
+
   {{ content_for_header }}
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   {% sections 'header-group' %}
 
-  <main id="top" role="main">
+  <main id="main" role="main">
     {{ content_for_layout }}
   </main>
 
   {% sections 'footer-group' %}
 
   {% render 'cart-drawer' %}
+  {% render 'signup-popup' %}
 
   <script src="{{ 'theme.js' | asset_url }}" defer></script>
 </body>

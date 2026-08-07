@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-contact",
+      "blocks": {
+        "b1": {
+          "type": "detail",
+          "settings": {
+            "heading": "Email",
+            "text": "<p>Use the form, or write to us directly. We read every message ourselves.</p>"
+          }
+        },
+        "b2": {
+          "type": "detail",
+          "settings": {
+            "heading": "Orders & delivery",
+            "text": "<p>Tracking, changes to an order, or a delivery that hasn't arrived — include your order number and we'll sort it.</p>"
+          }
+        },
+        "b3": {
+          "type": "detail",
+          "settings": {
+            "heading": "Returns",
+            "text": "<p>See our returns policy for the details, then get in touch and we'll walk you through it.</p>"
+          }
+        }
+      },
+      "block_order": ["b1", "b2", "b3"]
+    }
+  },
+  "order": ["main"]
+}

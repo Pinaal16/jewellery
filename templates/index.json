@@ -3,10 +3,10 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "eyebrow": "The Keepsake Edit · Limited Run",
+        "eyebrow": "The Keepsake Edit",
         "heading": "Jewellery that outlives",
         "heading_em": "the occasion.",
-        "subtext": "18k gold-plated, anti-tarnish pieces made for showers, sun and every day after. Nothing here needs to be saved for best.",
+        "subtext": "Pieces chosen to be worn every day — not saved for best.",
         "cta1_label": "Shop New Arrivals",
         "cta2_label": "Most Loved",
         "badge_text": "Under<br>$30"
@@ -15,17 +15,22 @@
     "values": {
       "type": "values",
       "blocks": {
-        "v1": { "type": "value", "settings": { "icon": "💧", "heading": "Waterproof", "text": "Swim, shower, sweat — it stays gold." } },
-        "v2": { "type": "value", "settings": { "icon": "✦", "heading": "Anti-tarnish", "text": "18k gold plating over stainless steel." } },
-        "v3": { "type": "value", "settings": { "icon": "🤍", "heading": "Skin friendly", "text": "Hypoallergenic & nickel safe." } }
+        "v1": { "type": "value", "settings": { "icon": "✦", "heading": "Free shipping", "text": "On every order over $79." } },
+        "v2": { "type": "value", "settings": { "icon": "🔒", "heading": "Secure checkout", "text": "Payments processed by Shopify." } },
+        "v3": { "type": "value", "settings": { "icon": "✉", "heading": "Here to help", "text": "Questions answered by a real person." } }
       },
       "block_order": ["v1", "v2", "v3"]
     },
     "collection_cards": {
       "type": "collection-cards",
+      "settings": {
+        "eyebrow": "Everything, In Its Place",
+        "heading": "Shop by collection",
+        "anchor": "collections"
+      },
       "blocks": {
         "c1": { "type": "card", "settings": { "subtitle": "Charms & pendants" } },
-        "c2": { "type": "card", "settings": { "subtitle": "Hoops & huggies" } },
+        "c2": { "type": "card", "settings": { "subtitle": "Hoops & studs" } },
         "c3": { "type": "card", "settings": { "subtitle": "Bangles & beads" } }
       },
       "block_order": ["c1", "c2", "c3"]
@@ -35,7 +40,7 @@
       "settings": {
         "eyebrow": "Just Landed",
         "heading": "New arrivals",
-        "subtext": "Fresh from the atelier — most pieces under $30.",
+        "subtext": "The most recent additions to the collection.",
         "limit": 8,
         "anchor": "new"
       }
@@ -45,7 +50,7 @@
       "settings": {
         "eyebrow": "Customer Favourites",
         "heading": "Most loved",
-        "subtext": "The pieces our customers reorder, gift, and refuse to take off.",
+        "subtext": "The pieces that keep selling out.",
         "limit": 8,
         "style": "alt",
         "anchor": "loved"
@@ -57,7 +62,7 @@
         "eyebrow": "Our Story",
         "heading": "Luxury shouldn't be a",
         "heading_em": "special occasion.",
-        "text": "Lauviere began with a simple frustration: beautiful jewellery that turned green by summer, and “investment pieces” too precious to actually wear. So we made our own — 18k gold-plated stainless steel that survives the ocean, the gym and the school run, at prices that don't need a payment plan. Wear it hard. It can take it.",
+        "text": "Write your story here — why you started Lauviere, what you look for when you choose a piece, and what you want a customer to feel when the parcel arrives. Keep it to what's true; it will do more work than any claim.",
         "anchor": "story"
       }
     },
