@@ -1,0 +1,71 @@
+<div class="page-width">
+  <div class="pdp">
+    <div class="pdp-gallery">
+      <div class="pdp-media">
+        {%- if product.featured_image -%}
+          {{ product.featured_image | image_url: width: 1000 | image_tag: alt: product.featured_image.alt | default: product.title }}
+        {%- else -%}
+          {% render 'svg-placeholder', placeholder_id: product.id %}
+        {%- endif -%}
+      </div>
+      {%- if product.images.size > 1 -%}
+        <div class="pdp-thumbs">
+          {%- for image in product.images -%}
+            <button type="button" data-src="{{ image | image_url: width: 1000 }}" class="{% if forloop.first %}active{% endif %}" aria-label="View image {{ forloop.index }}">
+              {{ image | image_url: width: 144 | image_tag: loading: 'lazy', alt: '' }}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="pdp-info">
+      <h1>{{ product.title }}</h1>
+      <p class="pdp-price">
+        {%- assign variant = product.selected_or_first_available_variant -%}
+        {%- if variant.compare_at_price > variant.price -%}
+          <span class="was" id="pdpPriceWas">{{ variant.compare_at_price | money }}</span>
+        {%- else -%}
+          <span class="was" id="pdpPriceWas" style="display:none"></span>
+        {%- endif -%}
+        <span class="now" id="pdpPriceNow">{{ variant.price | money }}</span>
+      </p>
+      <div class="pdp-desc rte">{{ product.description }}</div>
+      <form id="pdpForm" class="pdp-form" onsubmit="return false">
+        {%- if product.variants.size > 1 -%}
+          <select name="id" aria-label="Choose a variant">
+            {%- for v in product.variants -%}
+              <option value="{{ v.id }}"
+                data-price="{{ v.price }}"
+                {% if v.compare_at_price > v.price %}data-compare="{{ v.compare_at_price }}"{% endif %}
+                data-available="{{ v.available }}"
+                {% if v == variant %}selected{% endif %}>
+                {{ v.title }}{% unless v.available %} — sold out{% endunless %}
+              </option>
+            {%- endfor -%}
+          </select>
+        {%- endif -%}
+        {%- if product.available -%}
+          <button class="btn btn-solid" data-variant-id="{{ variant.id }}">Add to cart</button>
+        {%- else -%}
+          <button class="btn btn-solid" disabled>Sold out</button>
+        {%- endif -%}
+      </form>
+      {%- if section.settings.perks != blank -%}
+        <div class="pdp-perks">
+          {%- assign perks = section.settings.perks | split: ',' -%}
+          {%- for perk in perks -%}<span>✦ {{ perk | strip }}</span>{%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product page",
+  "settings": [
+    { "type": "text", "id": "perks", "label": "Perk list (comma separated)", "default": "Anti-tarnish 18k gold plating, Waterproof — swim & shower safe, Hypoallergenic & nickel free" }
+  ]
+}
+{% endschema %}

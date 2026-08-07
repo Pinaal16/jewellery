@@ -1,0 +1,41 @@
+<section class="products-section{% if section.settings.style == 'alt' %} alt{% elsif section.settings.style == 'tight' %} tight{% endif %}" id="{{ section.settings.anchor | default: section.id }}">
+  {%- if section.settings.eyebrow != blank -%}<p class="eyebrow center reveal">{{ section.settings.eyebrow }}</p>{%- endif -%}
+  {%- if section.settings.heading != blank -%}<h2 class="section-title reveal">{{ section.settings.heading }}</h2>{%- endif -%}
+  {%- if section.settings.subtext != blank -%}<p class="section-sub reveal">{{ section.settings.subtext }}</p>{%- endif -%}
+  <div class="product-grid">
+    {%- for product in section.settings.collection.products limit: section.settings.limit -%}
+      {% render 'product-card', product: product %}
+    {%- else -%}
+      {%- for i in (1..4) -%}
+        <article class="product-card">
+          <div class="pc-img">{% render 'svg-placeholder', placeholder_id: i %}</div>
+          <div class="pc-body"><h3 class="pc-name">Example product</h3><p class="pc-price"><span class="now">$29.99</span></p></div>
+        </article>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured collection",
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "New arrivals" },
+    { "type": "text", "id": "subtext", "label": "Subtext" },
+    { "type": "range", "id": "limit", "label": "Products to show", "min": 4, "max": 12, "step": 4, "default": 8 },
+    {
+      "type": "select", "id": "style", "label": "Style",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "alt", "label": "Cream background" },
+        { "value": "tight", "label": "Tight (less top padding)" }
+      ],
+      "default": "default"
+    },
+    { "type": "text", "id": "anchor", "label": "Anchor ID (for menu links)" }
+  ],
+  "presets": [{ "name": "Featured collection" }]
+}
+{% endschema %}

@@ -1,0 +1,36 @@
+<div class="announce" aria-label="announcements">
+  <div class="announce-track">
+    {%- capture items -%}
+      {%- for block in section.blocks -%}
+        <span>✦ {{ block.settings.text }}</span>
+      {%- endfor -%}
+    {%- endcapture -%}
+    {{ items }}{{ items }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Announcement",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Free shipping over $79" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement bar",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Free shipping over $79" } },
+        { "type": "item", "settings": { "text": "Anti-tarnish · Waterproof · 18k gold plated" } },
+        { "type": "item", "settings": { "text": "Handmade quilted bags, small batch" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

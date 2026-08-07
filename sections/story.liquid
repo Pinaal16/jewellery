@@ -1,0 +1,39 @@
+<section class="story" id="{{ section.settings.anchor | default: section.id }}">
+  <div class="story-inner reveal">
+    <p class="eyebrow center light">{{ section.settings.eyebrow }}</p>
+    <h2>{{ section.settings.heading }} <em>{{ section.settings.heading_em }}</em></h2>
+    <p>{{ section.settings.text }}</p>
+    {%- if section.blocks.size > 0 -%}
+      <div class="story-stats">
+        {%- for block in section.blocks -%}
+          <div {{ block.shopify_attributes }}><strong>{{ block.settings.stat }}</strong><span>{{ block.settings.label }}</span></div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Story",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Story" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Luxury shouldn't be a" },
+    { "type": "text", "id": "heading_em", "label": "Heading (italic ending)", "default": "special occasion." },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "text", "id": "anchor", "label": "Anchor ID (for menu links)" }
+  ],
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "stat", "label": "Number", "default": "4.9★" },
+        { "type": "text", "id": "label", "label": "Label", "default": "average rating" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Story" }]
+}
+{% endschema %}

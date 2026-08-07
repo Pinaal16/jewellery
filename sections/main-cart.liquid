@@ -1,0 +1,39 @@
+<div class="page-width narrow">
+  <h1 class="page-title">Your cart</h1>
+  {%- if cart.item_count == 0 -%}
+    <p class="cart-empty">Your cart is empty — for now.</p>
+    <p style="text-align:center;margin-top:1.5rem"><a class="btn btn-solid" href="{{ routes.all_products_collection_url }}">Keep shopping</a></p>
+  {%- else -%}
+    <form action="{{ routes.cart_url }}" method="post" novalidate>
+      <div class="cart-page-items">
+        {%- for item in cart.items -%}
+          <div class="cart-page-row">
+            {%- if item.image -%}
+              {{ item.image | image_url: width: 160 | image_tag: loading: 'lazy', alt: item.title }}
+            {%- else -%}
+              <div class="ci-art">{% render 'svg-placeholder', placeholder_id: item.id %}</div>
+            {%- endif -%}
+            <div>
+              <p class="ci-name"><a href="{{ item.url }}">{{ item.product.title }}</a></p>
+              {%- if item.variant.title != 'Default Title' -%}<p class="ci-price">{{ item.variant.title }}</p>{%- endif -%}
+              <p class="ci-price">{{ item.final_price | money }}</p>
+            </div>
+            <input class="form-input" style="width:76px;margin:0;text-align:center" type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="Quantity for {{ item.product.title }}">
+            <strong>{{ item.final_line_price | money }}</strong>
+          </div>
+        {%- endfor -%}
+      </div>
+      <div class="cart-page-actions">
+        <button type="submit" name="update" class="btn btn-ghost" style="border-color:var(--pine);color:var(--pine)">Update quantities</button>
+        <div style="text-align:right">
+          <p class="cart-total" style="justify-content:flex-end;gap:1rem"><span>Subtotal</span><strong>{{ cart.items_subtotal_price | money }}</strong></p>
+          <button type="submit" name="checkout" class="btn btn-solid">Checkout</button>
+        </div>
+      </div>
+    </form>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{ "name": "Cart page", "settings": [] }
+{% endschema %}

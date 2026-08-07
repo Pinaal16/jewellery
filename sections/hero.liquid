@@ -1,0 +1,80 @@
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy reveal">
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h1>{{ section.settings.heading }}<br><em>{{ section.settings.heading_em }}</em></h1>
+      <p class="hero-sub">{{ section.settings.subtext }}</p>
+      <div class="hero-cta">
+        {%- if section.settings.cta1_label != blank -%}
+          <a href="{{ section.settings.cta1_link }}" class="btn btn-solid">{{ section.settings.cta1_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.cta2_label != blank -%}
+          <a href="{{ section.settings.cta2_link }}" class="btn btn-ghost">{{ section.settings.cta2_label }}</a>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.note != blank -%}<p class="hero-note">✦ {{ section.settings.note }}</p>{%- endif -%}
+    </div>
+    <div class="hero-art reveal" aria-hidden="true">
+      <div class="hero-frame">
+        {%- if section.settings.image -%}
+          {{ section.settings.image | image_url: width: 640 | image_tag: class: 'hero-svg', loading: 'eager' }}
+        {%- else -%}
+          <svg viewBox="0 0 400 480" class="hero-svg">
+            <defs>
+              <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#e8c66b"/><stop offset=".5" stop-color="#c9a227"/><stop offset="1" stop-color="#9a7a1a"/>
+              </linearGradient>
+              <radialGradient id="pearl" cx=".35" cy=".3" r=".9">
+                <stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#f3ead9"/><stop offset="1" stop-color="#d9c9a8"/>
+              </radialGradient>
+              <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#2f6b52"/><stop offset="1" stop-color="#143327"/>
+              </linearGradient>
+            </defs>
+            <path d="M60 20 C 60 200, 340 200, 340 20" fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+            <path d="M60 20 C 60 200, 340 200, 340 20" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="1.5" stroke-linecap="round" transform="translate(0 -2)"/>
+            <circle cx="200" cy="158" r="10" fill="url(#gold)"/>
+            <path d="M200 168 l0 26" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
+            <g transform="translate(200 260)">
+              <path d="M0 -66 L46 -18 L0 70 L-46 -18 Z" fill="url(#emerald)" stroke="url(#gold)" stroke-width="5"/>
+              <path d="M-46 -18 L46 -18 M0 -66 L-20 -18 L0 70 M0 -66 L20 -18 L0 70" stroke="#e8c66b" stroke-opacity=".5" stroke-width="1.6" fill="none"/>
+            </g>
+            <circle cx="118" cy="392" r="17" fill="url(#pearl)"/>
+            <circle cx="163" cy="410" r="17" fill="url(#pearl)"/>
+            <circle cx="237" cy="410" r="17" fill="url(#pearl)"/>
+            <circle cx="282" cy="392" r="17" fill="url(#pearl)"/>
+            <circle cx="200" cy="418" r="19" fill="url(#pearl)"/>
+            <g class="spark" fill="#e8c66b">
+              <path d="M330 300 l4 12 12 4 -12 4 -4 12 -4 -12 -12 -4 12 -4z"/>
+              <path d="M70 120 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z"/>
+              <path d="M320 90 l2.5 7.5 7.5 2.5 -7.5 2.5 -2.5 7.5 -2.5 -7.5 -7.5 -2.5 7.5 -2.5z"/>
+            </g>
+          </svg>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.badge_text != blank -%}
+        <div class="hero-badge">{{ section.settings.badge_text }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Keepsake Edit · Limited Run" },
+    { "type": "text", "id": "heading", "label": "Heading (line 1)", "default": "Jewellery that outlives" },
+    { "type": "text", "id": "heading_em", "label": "Heading (italic line 2)", "default": "the occasion." },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "18k gold-plated, anti-tarnish pieces made for showers, sun and every day after. Nothing here needs to be saved for best." },
+    { "type": "text", "id": "cta1_label", "label": "Primary button label", "default": "Shop New Arrivals" },
+    { "type": "url", "id": "cta1_link", "label": "Primary button link" },
+    { "type": "text", "id": "cta2_label", "label": "Secondary button label", "default": "The Handmade Bags" },
+    { "type": "url", "id": "cta2_link", "label": "Secondary button link" },
+    { "type": "text", "id": "note", "label": "Note under buttons" },
+    { "type": "image_picker", "id": "image", "label": "Hero image (replaces illustration)" },
+    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "Under<br>$30" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

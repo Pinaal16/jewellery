@@ -1,0 +1,35 @@
+{% comment %} Renders one product card. Accepts: product {% endcomment %}
+<article class="product-card reveal">
+  <a class="pc-img" href="{{ product.url }}">
+    {%- if product.available == false -%}
+      <span class="badge soldout">Sold out</span>
+    {%- elsif product.compare_at_price > product.price -%}
+      <span class="badge sale">Sale</span>
+    {%- elsif product.tags contains 'new' -%}
+      <span class="badge">New</span>
+    {%- elsif product.tags contains 'bestseller' -%}
+      <span class="badge">Bestseller</span>
+    {%- endif -%}
+    {%- if product.featured_image -%}
+      {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: product.featured_image.alt | default: product.title }}
+    {%- else -%}
+      {% render 'svg-placeholder', placeholder_id: product.id %}
+    {%- endif -%}
+  </a>
+  <div class="pc-body">
+    <h3 class="pc-name"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    <p class="pc-price">
+      {%- if product.compare_at_price > product.price -%}
+        <span class="was">{{ product.compare_at_price | money }}</span>
+      {%- endif -%}
+      <span class="now">{{ product.price | money }}</span>
+    </p>
+    {%- if product.available == false -%}
+      <button class="add-btn" disabled>Sold out</button>
+    {%- elsif product.variants.size == 1 -%}
+      <button class="add-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">Add to cart</button>
+    {%- else -%}
+      <a class="add-btn" href="{{ product.url }}">Choose options</a>
+    {%- endif -%}
+  </div>
+</article>

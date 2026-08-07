@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurelle — Jewellery Worth Keeping</title>
+<meta name="description" content="Anti-tarnish, waterproof, 18k gold-plated jewellery and handmade quilted bags. Affordable luxury, made to be lived in.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Announcement marquee -->
+<div class="announce" aria-label="announcements">
+  <div class="announce-track">
+    <span>✦ Free shipping over $79</span><span>✦ Anti-tarnish · Waterproof · 18k gold plated</span><span>✦ 10% off your first order — code HELLO10</span><span>✦ Handmade quilted bags, small batch</span>
+    <span>✦ Free shipping over $79</span><span>✦ Anti-tarnish · Waterproof · 18k gold plated</span><span>✦ 10% off your first order — code HELLO10</span><span>✦ Handmade quilted bags, small batch</span>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <nav class="nav-inner">
+    <div class="nav-left">
+      <a href="#new">New In</a>
+      <a href="#collections">Collections</a>
+      <a href="#handmade">Handmade</a>
+    </div>
+    <a class="logo" href="#top">AURELLE<span class="logo-mark">✦</span></a>
+    <div class="nav-right">
+      <a href="#loved">Most Loved</a>
+      <a href="#story">Our Story</a>
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M6 8h12l-1 12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">The Keepsake Edit · Limited Run</p>
+        <h1>Jewellery that outlives<br><em>the occasion.</em></h1>
+        <p class="hero-sub">18k gold-plated, anti-tarnish pieces made for showers, sun and every day after. Nothing here needs to be saved for best.</p>
+        <div class="hero-cta">
+          <a href="#new" class="btn btn-solid">Shop New Arrivals</a>
+          <a href="#handmade" class="btn btn-ghost">The Handmade Bags</a>
+        </div>
+        <p class="hero-note">✦ Buy any 2 handmades, get 20% off — automatic at checkout</p>
+      </div>
+      <div class="hero-art reveal" aria-hidden="true">
+        <div class="hero-frame">
+          <svg viewBox="0 0 400 480" class="hero-svg">
+            <defs>
+              <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#e8c66b"/><stop offset=".5" stop-color="#c9a227"/><stop offset="1" stop-color="#9a7a1a"/>
+              </linearGradient>
+              <radialGradient id="pearl" cx=".35" cy=".3" r=".9">
+                <stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#f3ead9"/><stop offset="1" stop-color="#d9c9a8"/>
+              </radialGradient>
+              <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#2f6b52"/><stop offset="1" stop-color="#143327"/>
+              </linearGradient>
+            </defs>
+            <path d="M60 20 C 60 200, 340 200, 340 20" fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+            <path d="M60 20 C 60 200, 340 200, 340 20" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="1.5" stroke-linecap="round" transform="translate(0 -2)"/>
+            <circle cx="200" cy="158" r="10" fill="url(#gold)"/>
+            <path d="M200 168 l0 26" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
+            <g transform="translate(200 260)">
+              <path d="M0 -66 L46 -18 L0 70 L-46 -18 Z" fill="url(#emerald)" stroke="url(#gold)" stroke-width="5"/>
+              <path d="M-46 -18 L46 -18 M0 -66 L-20 -18 L0 70 M0 -66 L20 -18 L0 70" stroke="#e8c66b" stroke-opacity=".5" stroke-width="1.6" fill="none"/>
+            </g>
+            <circle cx="118" cy="392" r="17" fill="url(#pearl)"/>
+            <circle cx="163" cy="410" r="17" fill="url(#pearl)"/>
+            <circle cx="237" cy="410" r="17" fill="url(#pearl)"/>
+            <circle cx="282" cy="392" r="17" fill="url(#pearl)"/>
+            <circle cx="200" cy="418" r="19" fill="url(#pearl)"/>
+            <g class="spark" fill="#e8c66b">
+              <path d="M330 300 l4 12 12 4 -12 4 -4 12 -4 -12 -12 -4 12 -4z"/>
+              <path d="M70 120 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z"/>
+              <path d="M320 90 l2.5 7.5 7.5 2.5 -7.5 2.5 -2.5 7.5 -2.5 -7.5 -7.5 -2.5 7.5 -2.5z"/>
+            </g>
+          </svg>
+        </div>
+        <div class="hero-badge">Under<br>$30</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value strip -->
+  <section class="values">
+    <div class="values-inner">
+      <div class="value"><span>💧</span><h3>Waterproof</h3><p>Swim, shower, sweat — it stays gold.</p></div>
+      <div class="value"><span>✦</span><h3>Anti-tarnish</h3><p>18k gold plating over stainless steel.</p></div>
+      <div class="value"><span>🤍</span><h3>Skin friendly</h3><p>Hypoallergenic &amp; nickel safe.</p></div>
+      <div class="value"><span>🧵</span><h3>Hand quilted</h3><p>Block-printed bags, made in small batches.</p></div>
+    </div>
+  </section>
+
+  <!-- Collections -->
+  <section class="collections" id="collections">
+    <p class="eyebrow center reveal">Everything, In Its Place</p>
+    <h2 class="section-title reveal">Shop by collection</h2>
+    <div class="collection-grid reveal">
+      <a href="#new" class="collection-card" data-cat="necklace"><div class="cc-art"><svg viewBox="0 0 120 120"><path d="M25 20 C 25 78, 95 78, 95 20" fill="none" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round"/><circle cx="60" cy="64" r="5" fill="url(#gold)"/><path d="M60 69 l0 10" stroke="url(#gold)" stroke-width="3" stroke-linecap="round"/><path d="M60 84 l7 8 -7 12 -7 -12z" fill="url(#emerald)" stroke="url(#gold)" stroke-width="2"/></svg></div><h3>Necklaces</h3><p>Charms &amp; pendants</p></a>
+      <a href="#new" class="collection-card" data-cat="earrings"><div class="cc-art"><svg viewBox="0 0 120 120"><circle cx="42" cy="60" r="20" fill="none" stroke="url(#gold)" stroke-width="4"/><circle cx="42" cy="36" r="4" fill="url(#gold)"/><circle cx="80" cy="60" r="20" fill="none" stroke="url(#gold)" stroke-width="4"/><circle cx="80" cy="36" r="4" fill="url(#gold)"/></svg></div><h3>Earrings</h3><p>Hoops &amp; huggies</p></a>
+      <a href="#new" class="collection-card" data-cat="bracelet"><div class="cc-art"><svg viewBox="0 0 120 120"><ellipse cx="60" cy="62" rx="34" ry="30" fill="none" stroke="url(#gold)" stroke-width="4.5"/><circle cx="60" cy="32" r="7" fill="url(#pearl)"/><circle cx="88" cy="52" r="5" fill="url(#pearl)"/><circle cx="32" cy="52" r="5" fill="url(#pearl)"/></svg></div><h3>Bracelets</h3><p>Bangles &amp; beads</p></a>
+      <a href="#handmade" class="collection-card" data-cat="bag"><div class="cc-art"><svg viewBox="0 0 120 120"><path d="M30 50 h60 l-6 44 a6 6 0 0 1-6 5 H42 a6 6 0 0 1-6-5z" fill="url(#emerald)" stroke="url(#gold)" stroke-width="3"/><path d="M45 50 v-8 a15 15 0 0 1 30 0 v8" fill="none" stroke="url(#gold)" stroke-width="3.5"/><path d="M38 62 h44 M40 76 h40" stroke="#e8c66b" stroke-opacity=".55" stroke-width="1.6"/></svg></div><h3>Handmade Bags</h3><p>Totes &amp; weekenders</p></a>
+    </div>
+  </section>
+
+  <!-- New arrivals -->
+  <section class="products-section" id="new">
+    <p class="eyebrow center reveal">Just Landed</p>
+    <h2 class="section-title reveal">New arrivals</h2>
+    <p class="section-sub reveal">Fresh from the atelier — most pieces under $30.</p>
+    <div class="product-grid" id="newGrid"></div>
+  </section>
+
+  <!-- Handmade banner + grid -->
+  <section class="handmade-banner" id="handmade">
+    <div class="hb-inner reveal">
+      <p class="eyebrow light">Aurelle Handmades</p>
+      <h2>Crafted by hand,<br><em>carried for life.</em></h2>
+      <p>Quilted cotton totes, duffels and laptop sleeves in Indian block prints. Every stitch by a human, every bag one of a small batch.</p>
+      <span class="hb-offer">Buy any 2 · 20% off</span>
+    </div>
+  </section>
+  <section class="products-section tight">
+    <div class="product-grid" id="handmadeGrid"></div>
+  </section>
+
+  <!-- Most loved -->
+  <section class="products-section alt" id="loved">
+    <p class="eyebrow center reveal">Customer Favourites</p>
+    <h2 class="section-title reveal">Most loved</h2>
+    <p class="section-sub reveal">The pieces our customers reorder, gift, and refuse to take off.</p>
+    <div class="product-grid" id="lovedGrid"></div>
+  </section>
+
+  <!-- Story -->
+  <section class="story" id="story">
+    <div class="story-inner reveal">
+      <p class="eyebrow center light">Our Story</p>
+      <h2>Luxury shouldn't be a <em>special occasion.</em></h2>
+      <p>Aurelle began with a simple frustration: beautiful jewellery that turned green by summer, and “investment pieces” too precious to actually wear. So we made our own — 18k gold-plated stainless steel that survives the ocean, the gym and the school run, at prices that don't need a payment plan. Wear it hard. It can take it.</p>
+      <div class="story-stats">
+        <div><strong>12k+</strong><span>happy customers</span></div>
+        <div><strong>4.9★</strong><span>average rating</span></div>
+        <div><strong>2yr</strong><span>tarnish-free promise</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2 class="section-title reveal">Word of mouth</h2>
+    <div class="testimonial-grid reveal">
+      <figure><blockquote>“Wore my Celeste bangle every single day of a 3-week beach holiday. Still looks brand new.”</blockquote><figcaption>Priya — Melbourne <span>★★★★★</span></figcaption></figure>
+      <figure><blockquote>“The tote is somehow prettier in person. People stop me to ask where it's from.”</blockquote><figcaption>Hannah — Perth <span>★★★★★</span></figcaption></figure>
+      <figure><blockquote>“Bought the hoops as a gift, kept them, bought another pair as the actual gift. No regrets.”</blockquote><figcaption>Sofia — Sydney <span>★★★★★</span></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="newsletter-inner reveal">
+      <h2>First dibs &amp; 10% off</h2>
+      <p>New drops, restocks and the occasional secret sale. No noise.</p>
+      <form id="newsForm">
+        <input type="email" placeholder="your@email.com" required aria-label="Email address">
+        <button type="submit" class="btn btn-solid">Join</button>
+      </form>
+      <p class="news-done" id="newsDone">✦ Welcome to the inner circle — check your inbox.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="f-brand">
+      <span class="logo">AURELLE<span class="logo-mark">✦</span></span>
+      <p>Affordable luxury, made to be lived in. Anti-tarnish jewellery &amp; handmade quilted bags.</p>
+    </div>
+    <div class="f-col"><h4>Shop</h4><a href="#new">New Arrivals</a><a href="#collections">Collections</a><a href="#handmade">Handmade Bags</a><a href="#loved">Most Loved</a></div>
+    <div class="f-col"><h4>Help</h4><a href="#">Shipping &amp; Returns</a><a href="#">Jewellery Care</a><a href="#">Size Guide</a><a href="#">Contact</a></div>
+    <div class="f-col"><h4>Follow</h4><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Pinterest</a></div>
+  </div>
+  <p class="f-fine">© 2026 Aurelle. A concept storefront — demo only.</p>
+</footer>
+
+<!-- Cart drawer -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="cart-head">
+    <h3>Your cart</h3>
+    <button id="cartClose" aria-label="Close cart">✕</button>
+  </div>
+  <div class="cart-ship" id="cartShip"></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-total"><span>Subtotal</span><strong id="cartTotal">$0.00</strong></div>
+    <button class="btn btn-solid wide" id="checkoutBtn">Checkout</button>
+    <p class="cart-fine">Demo store — checkout is decorative ✦</p>
+  </div>
+</aside>
+
+<!-- Social proof toast -->
+<div class="toast" id="toast" role="status"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

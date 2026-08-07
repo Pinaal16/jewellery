@@ -1,0 +1,14 @@
+<div class="page-width narrow">
+  <article>
+    <h1 class="page-title">{{ article.title }}</h1>
+    <p style="opacity:.6;font-size:.85rem;margin-bottom:1.6rem">{{ article.published_at | date: '%d %B %Y' }}</p>
+    {%- if article.image -%}
+      {{ article.image | image_url: width: 1200 | image_tag: style: 'border-radius:18px;margin-bottom:1.6rem', alt: article.image.alt | default: article.title }}
+    {%- endif -%}
+    <div class="rte">{{ article.content }}</div>
+  </article>
+</div>
+
+{% schema %}
+{ "name": "Article", "settings": [] }
+{% endschema %}

@@ -1,0 +1,37 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="f-brand">
+      <span class="logo">{{ shop.name | upcase }}<span class="logo-mark">✦</span></span>
+      <p>{{ section.settings.blurb }}</p>
+    </div>
+    {%- for block in section.blocks -%}
+      <div class="f-col" {{ block.shopify_attributes }}>
+        <h4>{{ block.settings.heading }}</h4>
+        {%- for link in block.settings.menu.links -%}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {%- endfor -%}
+      </div>
+    {%- endfor -%}
+  </div>
+  <p class="f-fine">© {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "text", "id": "blurb", "label": "Brand blurb", "default": "Affordable luxury, made to be lived in. Anti-tarnish jewellery & handmade quilted bags." }
+  ],
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu column",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Shop" },
+        { "type": "link_list", "id": "menu", "label": "Menu" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,22 @@
+<div class="page-width">
+  <h1 class="page-title" style="text-align:center">Collections</h1>
+  <div class="collection-grid">
+    {%- for collection in collections -%}
+      <a href="{{ collection.url }}" class="collection-card">
+        <div class="cc-art">
+          {%- if collection.featured_image -%}
+            {{ collection.featured_image | image_url: width: 200 | image_tag: loading: 'lazy', alt: collection.title }}
+          {%- else -%}
+            {% render 'svg-placeholder', placeholder_id: collection.id %}
+          {%- endif -%}
+        </div>
+        <h3>{{ collection.title }}</h3>
+        <p>{{ collection.products_count }} pieces</p>
+      </a>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{ "name": "Collections list", "settings": [] }
+{% endschema %}

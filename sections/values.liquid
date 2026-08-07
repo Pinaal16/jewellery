@@ -1,0 +1,40 @@
+<section class="values">
+  <div class="values-inner">
+    {%- for block in section.blocks -%}
+      <div class="value" {{ block.shopify_attributes }}>
+        <span aria-hidden="true">{{ block.settings.icon }}</span>
+        <h3>{{ block.settings.heading }}</h3>
+        <p>{{ block.settings.text }}</p>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Value strip",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon (emoji or symbol)", "default": "✦" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Anti-tarnish" },
+        { "type": "text", "id": "text", "label": "Text", "default": "18k gold plating over stainless steel." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Value strip",
+      "blocks": [
+        { "type": "value", "settings": { "icon": "💧", "heading": "Waterproof", "text": "Swim, shower, sweat — it stays gold." } },
+        { "type": "value", "settings": { "icon": "✦", "heading": "Anti-tarnish", "text": "18k gold plating over stainless steel." } },
+        { "type": "value", "settings": { "icon": "🤍", "heading": "Skin friendly", "text": "Hypoallergenic & nickel safe." } },
+        { "type": "value", "settings": { "icon": "🧵", "heading": "Hand quilted", "text": "Block-printed bags, made in small batches." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
