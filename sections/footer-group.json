@@ -6,9 +6,10 @@
       "type": "footer",
       "blocks": {
         "shop": { "type": "menu", "settings": { "heading": "Shop", "menu": "main-menu" } },
-        "help": { "type": "menu", "settings": { "heading": "Help", "menu": "footer" } }
+        "help": { "type": "menu", "settings": { "heading": "Help", "menu": "footer" } },
+        "about": { "type": "menu", "settings": { "heading": "Lauviere", "menu": "footer" } }
       },
-      "block_order": ["shop", "help"]
+      "block_order": ["shop", "help", "about"]
     }
   },
   "order": ["footer"]
